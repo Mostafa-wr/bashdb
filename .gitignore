@@ -1,0 +1,5 @@
+databases/*
+!databases/.gitkeep
+*.tmp
+.DS_Store
+.vscode/
