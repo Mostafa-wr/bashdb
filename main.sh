@@ -30,11 +30,14 @@ main_menu() {
         case "$option" in
 
             "Create Database")
-                echo "Create Database - Coming Soon"
+                ##echo "Create Database - Coming Soon"
+                read  -p "enter database name" db_name
+                create_db "$db_name"
                 ;;
 
             "List Databases")
-                echo "List Databases - Coming Soon"
+                ##echo "List Databases - Coming Soon"
+                list_dbs
                 ;;
 
             "Connect to Database")
@@ -60,6 +63,7 @@ main_menu() {
                 echo "Invalid choice. Try again."
                 ;;
         esac
+        REPLY=""
 
         echo ""
     done
