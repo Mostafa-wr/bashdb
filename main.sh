@@ -6,6 +6,8 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)" || exit 1
 
 source "$SCRIPT_DIR/config.sh" || exit 1
 source "$SCRIPT_DIR/scripts/db_ops.sh" || exit 1
+source "$SCRIPT_DIR/scripts/menu.sh" || exit 1
+
 
 CURRENT_DB_NAME=""
 ##check if the database dir exists if not create it 
@@ -39,11 +41,17 @@ main_menu() {
                 ;;
 
             "Connect to Database")
-                echo "Connect to Database - Coming Soon"
+                #echo "Connect to Database - Coming Soon"
+                if connect_db
+                then
+                	database_menu
+                fi
+                
                 ;;
 
             "Drop Database")
-                echo "Drop Database - Coming Soon"
+                #echo "Drop Database - Coming Soon"
+                drop_db
                 ;;
 
             "Exit")
