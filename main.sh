@@ -5,6 +5,7 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)" || exit 1
 ##load the config
 
 source "$SCRIPT_DIR/config.sh" || exit 1
+source "$SCRIPT_DIR/scripts/db_ops.sh" || exit 1
 
 CURRENT_DB_NAME=""
 ##check if the database dir exists if not create it 
@@ -27,11 +28,14 @@ main_menu() {
         case "$option" in
 
             "Create Database")
-                echo "Create Database - Coming Soon"
+                ##echo "Create Database - Coming Soon"
+                read  -p "enter database name" db_name
+                create_db "$db_name"
                 ;;
 
             "List Databases")
-                echo "List Databases - Coming Soon"
+                ##echo "List Databases - Coming Soon"
+                list_dbs
                 ;;
 
             "Connect to Database")
@@ -51,6 +55,7 @@ main_menu() {
                 echo "Invalid choice. Try again."
                 ;;
         esac
+        REPLY=""
 
         echo ""
     done
